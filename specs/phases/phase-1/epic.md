@@ -28,6 +28,7 @@ Establish a running monorepo with all package skeletons, database infrastructure
 - NextAuth.js v5 with credentials provider (email/password)
 - Protected routes and API authentication
 - Development scripts (`dev`, `build`, `typecheck`, `lint`)
+- Docker Compose for local dev services (PostgreSQL, Adminer)
 
 ### Out of Scope (Not This Phase)
 
@@ -36,16 +37,17 @@ Establish a running monorepo with all package skeletons, database infrastructure
 - OAuth providers (can be added later, credentials-only for now)
 - E2E tests (Playwright setup deferred to later phases)
 - CI/CD pipeline
-- Docker / deployment configuration
+- Production Docker / deployment configuration
 - Dark mode theming
 
 ## Features
 
 | ID  | Feature                  | Depends On |
 | --- | ------------------------ | ---------- |
+| F0  | Dev Infrastructure       | —          |
 | F1  | Monorepo & Tooling Setup | —          |
 | F2  | Shared Package           | F1         |
-| F3  | Database Package         | F1, F2     |
+| F3  | Database Package         | F0, F1, F2 |
 | F4  | API Shell                | F1, F2, F3 |
 | F5  | Web Shell                | F1, F2     |
 | F6  | Authentication           | F3, F4, F5 |
@@ -54,23 +56,25 @@ Establish a running monorepo with all package skeletons, database infrastructure
 ### Parallelization Opportunities
 
 ```
+F0 ──────────────────┐
 F1 → F2 → ┬─ F3 ──→ F4 ──→ F6
            ├─ F5 ──────────↗
            └─ F7 (independent)
 ```
 
-After F2 completes, F3, F5, and F7 can run in parallel. F4 depends on F3. F6 depends on F3, F4, and F5.
+F0 can run independently. After F2 completes, F3, F5, and F7 can run in parallel. F4 depends on F3. F6 depends on F3, F4, and F5.
 
 ## Phase Verification
 
 After all features are complete:
 
-1. `pnpm install` — clean install from scratch
-2. `pnpm build` — all packages compile
-3. `pnpm typecheck` — zero type errors
-4. `pnpm lint` — zero lint errors
-5. `pnpm dev` — API and web both start
-6. Database migration runs successfully
-7. Sign up → log in → access protected page → log out flow works
-8. `GET /api/health` returns `{ "status": "ok" }`
-9. Unauthenticated `GET /api/projects` returns 401
+1. `pnpm dev:infra` — PostgreSQL and Adminer start
+2. `pnpm install` — clean install from scratch
+3. `pnpm build` — all packages compile
+4. `pnpm typecheck` — zero type errors
+5. `pnpm lint` — zero lint errors
+6. `pnpm dev` — API and web both start
+7. Database migration runs successfully
+8. Sign up → log in → access protected page → log out flow works
+9. `GET /api/health` returns `{ "status": "ok" }`
+10. Unauthenticated `GET /api/projects` returns 401

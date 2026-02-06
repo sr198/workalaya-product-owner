@@ -4,16 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "echo 'API dev server — implemented in F4'",
-    "build": "echo 'API build — implemented in F4'",
+    "dev": "dotenv -e ../../.env -- tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@fastify/cors": "^10.0.0",
+    "@fastify/sensible": "^6.0.0",
+    "@workalaya/db": "workspace:*",
     "@workalaya/shared": "workspace:*",
-    "@workalaya/db": "workspace:*"
+    "fastify": "^5.0.0",
+    "fastify-plugin": "^5.0.0"
   },
   "devDependencies": {
+    "pino-pretty": "^13.0.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.5.0"
   }
 }
