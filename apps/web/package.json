@@ -4,15 +4,30 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "echo 'Web dev server — implemented in F5'",
-    "build": "echo 'Web build — implemented in F5'",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."
   },
   "dependencies": {
-    "@workalaya/shared": "workspace:*"
+    "@workalaya/shared": "workspace:*",
+    "@tanstack/react-query": "^5.62.14",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.462.0",
+    "next": "^15.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.6",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.5.0"
   }
 }
