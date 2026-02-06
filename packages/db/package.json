@@ -12,14 +12,21 @@
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "dotenv -e ../../.env -- prisma generate && tsup",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "db:generate": "dotenv -e ../../.env -- prisma generate",
+    "db:migrate": "dotenv -e ../../.env -- prisma migrate dev",
+    "db:push": "dotenv -e ../../.env -- prisma db push",
+    "db:studio": "dotenv -e ../../.env -- prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "^6.0.0",
     "@workalaya/shared": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
+    "prisma": "^6.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.5.0"
   }

@@ -7,6 +7,8 @@
     "build": "turbo build",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
+    "dev:infra": "docker compose up -d",
+    "dev:infra:down": "docker compose down",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\""
   },
@@ -17,6 +19,7 @@
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.0",
     "tsup": "^8.0.0",
+    "dotenv-cli": "^7.4.0",
     "turbo": "^2.0.0",
     "typescript": "^5.5.0"
   },
