@@ -1,0 +1,18 @@
+{
+  "name": "@workalaya/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Web dev server — implemented in F5'",
+    "build": "echo 'Web build — implemented in F5'",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@workalaya/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
