@@ -30,6 +30,12 @@ export class ForbiddenError extends AppError {
   }
 }
 
+export class UnauthorizedError extends AppError {
+  constructor(message = 'Unauthorized') {
+    super(message, ERROR_CODES.UNAUTHORIZED, 401);
+  }
+}
+
 export class ConflictError extends AppError {
   constructor(message = 'Resource conflict') {
     super(message, ERROR_CODES.CONFLICT, 409);
