@@ -10,7 +10,7 @@
 | F3 | Database Package | `COMPLETE` | Prisma schema (User, Account, Session, VerificationToken, Project), singleton client, NextAuth v5 compatible |
 | F4 | API Shell | `COMPLETE` | Fastify server with plugin architecture, error handler, CORS, health check endpoint |
 | F5 | Web Shell | `COMPLETE` | Next.js 15 App Router, Tailwind CSS, shadcn/ui Button, React Query, API client utility |
-| F6 | Authentication | `NOT_STARTED` | |
+| F6 | Authentication | `COMPLETE` | NextAuth v5 (Credentials), JWT sessions, Fastify auth plugin, signup/login/logout, route protection |
 | F7 | AI Provider Shell | `NOT_STARTED` | |
 
 ## Status: `IN_PROGRESS`

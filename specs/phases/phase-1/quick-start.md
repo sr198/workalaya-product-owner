@@ -2,7 +2,7 @@
 
 How to get everything running from a clean clone. Updated as features are completed.
 
-**Completed features:** F0, F1, F2, F3, F4, F5
+**Completed features:** F0, F1, F2, F3, F4, F5, F6
 
 ---
 
@@ -16,9 +16,12 @@ How to get everything running from a clean clone. Updated as features are comple
 
 ```bash
 cp .env.example .env
+cp apps/web/.env.example apps/web/.env
 ```
 
-The root `.env` is the single source of truth. All dev scripts load from it via `dotenv-cli`.
+The root `.env` is used by the API (via `dotenv-cli`). The web app loads from `apps/web/.env` (Next.js built-in).
+
+**Important:** `NEXTAUTH_SECRET` (in `apps/web/.env`) and `JWT_SECRET` (in root `.env`) must be the same value.
 
 ## 3. Install and Start Infrastructure (F0)
 
@@ -72,7 +75,31 @@ Verify:
 - No console errors in browser
 - Tailwind styles applied correctly
 
-## 7. Stop Everything
+## 7. Authentication (F6)
+
+With both API and web app running:
+
+1. Navigate to http://localhost:3000/auth/signup — sign up with name, email, password
+2. Redirected to login page — log in with the same credentials
+3. Redirected to `/dashboard` — shows user name and logout button
+4. Click logout — redirected to login page
+5. Navigate to http://localhost:3000/dashboard while logged out — redirected to `/auth/login`
+
+API auth verification:
+```bash
+# Health check — no auth required
+curl http://localhost:3001/api/health
+
+# Any other route — returns 401 without token
+curl http://localhost:3001/api/projects
+
+# Signup with existing email — returns 409
+curl -X POST http://localhost:3001/api/auth/signup \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","email":"existing@example.com","password":"password123"}'
+```
+
+## 8. Stop Everything
 
 ```bash
 # Stop web app: Ctrl+C in the dev terminal

@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@workalaya/shared'],
+  transpilePackages: ['@workalaya/shared', '@workalaya/db'],
 };
 
 export default nextConfig;

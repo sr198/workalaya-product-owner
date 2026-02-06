@@ -3,7 +3,9 @@ import { env } from './lib/env.js';
 import corsPlugin from './plugins/cors.js';
 import databasePlugin from './plugins/database.js';
 import errorHandlerPlugin from './plugins/error-handler.js';
+import authPlugin from './plugins/auth.js';
 import { healthRoutes } from './routes/health.js';
+import { authSignupRoute } from './routes/auth/signup.js';
 
 function buildServer() {
   const fastify = Fastify({
@@ -16,11 +18,13 @@ function buildServer() {
     },
   });
 
-  // Plugin registration order: cors → database → error-handler → routes
+  // Plugin registration order: cors → database → error-handler → auth → routes
   fastify.register(corsPlugin);
   fastify.register(databasePlugin);
   fastify.register(errorHandlerPlugin);
+  fastify.register(authPlugin);
   fastify.register(healthRoutes, { prefix: '/api' });
+  fastify.register(authSignupRoute, { prefix: '/api' });
 
   return fastify;
 }
