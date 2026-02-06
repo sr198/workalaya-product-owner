@@ -35,6 +35,7 @@ How this project is planned, implemented, and tracked.
 |----------|----------|
 | Epic definition | `specs/phases/phase-{n}/epic.md` |
 | Feature specs | `specs/phases/phase-{n}/features/F{n}-*.md` |
+| Quick start guide | `specs/phases/phase-{n}/quick-start.md` |
 | Status initialized | `specs/phases/phase-{n}/status.md` updated with feature list |
 
 **Process:**
@@ -120,7 +121,8 @@ F5 depends on F1
 2. Check verification results from the agent
 3. Run `pnpm build` and `pnpm typecheck` if not already done
 4. Spot-check the implemented code against conventions
-5. Decision: **Approve** (mark complete) or **Revise** (note issues, re-run)
+5. Update `specs/phases/phase-{n}/quick-start.md` with any new setup steps or verification commands
+6. Decision: **Approve** (mark complete) or **Revise** (note issues, re-run)
 
 ---
 
