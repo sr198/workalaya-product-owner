@@ -34,12 +34,12 @@ Rules for the implementation agent when building features from feature specs.
 ---
 
 ## After Implementing
-
-1. **Run the verification steps** listed in the feature spec.
-2. **Run `pnpm build`** — must compile without errors.
-3. **Run `pnpm typecheck`** — must pass with no type errors.
-4. **Run relevant tests** if the spec includes test requirements.
-5. **Update `status.md`** for the current phase.
+The human engineer in control of the process needs to run all build, test and validation steps. Ask the user to run:
+1. **All the verification steps** listed in the feature spec.
+2. **`pnpm build`** — must compile without errors.
+3. **`pnpm typecheck`** — must pass with no type errors.
+4. **Relevant tests** if the spec includes test requirements.
+5. **Then you can Update `status.md`** for the current phase.
 
 ---
 
