@@ -65,7 +65,7 @@ Epic Definition → Feature Specs → Implement (one feature at a time) → Veri
 
 | Phase                         | Status        |
 | ----------------------------- | ------------- |
-| 1 — Foundation                | `NOT_STARTED` |
+| 1 — Foundation                | `COMPLETE`    |
 | 2 — Conversational Core       | `NOT_STARTED` |
 | 3 — Discovery & Problem Space | `NOT_STARTED` |
 | 4 — Journey Modeling          | `NOT_STARTED` |

@@ -2,7 +2,7 @@
 
 How to get everything running from a clean clone. Updated as features are completed.
 
-**Completed features:** F0, F1, F2, F3, F4, F5, F6
+**Completed features:** F0, F1, F2, F3, F4, F5, F6, F7
 
 ---
 

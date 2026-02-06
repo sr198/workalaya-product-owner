@@ -50,7 +50,7 @@ This project follows a **phased, feature-atomic** development process. See `spec
 
 ## Current State
 
-**Active Phase:** None — specs directory set up, ready to plan Phase 1
+**Active Phase:** Phase 1 complete — ready to plan Phase 2
 **Roadmap:** `specs/phases/overview.md`
 
 ---
